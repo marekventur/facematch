@@ -1,0 +1,3 @@
+[submodule "noty"]
+	path = noty
+	url = https://github.com/needim/noty.git

@@ -5,7 +5,11 @@ var artists = [
 	'Psy',
 	'Adele',
 	'Mozart',
-	''
+	'Backstreet Boys',
+	'Pink Floyd',
+	'Coldplay',
+	'Journey',
+	'REM'
 ];
 
 // Returns a cloned, shuffled list of artists
@@ -42,7 +46,14 @@ function getFansForArtist(artist, callback) {
 	});
 }
 
+function updateText() {
+	$('#points').text(points);
+	$('#tries').text(tries);
+}
+
 var thisRoundWinner;
+var tries = 2;
+var points = 0;
 
 $(function() {
 
@@ -78,16 +89,28 @@ $(function() {
 			var $choice = $('<li><a href="#">'+artist+'</a></li>');
 			$('a', $choice).click(function() {
 				if (artist == thisRoundWinner) {
-					alert('yes');
+					points += 5;
+					var noty = $.noty({text: 'well done'});
 				}
 				else
 				{
-					alert('no');
+					points -= 1;
+					$choice.css('text-decoration', 'strikethrough');
+					var noty = $.noty({text: 'no, that\'s wrong'});
 				}
 			});
 			$('.choices').append($choice);
 		});
 
+		
+		var noty = $.noty({text: 'have fun'});
+
+		updateText();
+
+	}
+
+	function nextRound() {
+		sta
 	}
 
 	startRound();
