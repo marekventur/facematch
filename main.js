@@ -14,7 +14,7 @@ var artists = [
 	'Abba',
 	'Skrillex',
 	'Red Hot Chili Peppers',
-	'Pussy Riots',
+	'Pussy Riot',
 	'Fury In The Slaughterhouse',
 	'Rage Against the Machine',
 	'浜崎あゆみ',
