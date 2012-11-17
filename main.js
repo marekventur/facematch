@@ -15,7 +15,6 @@ var artists = [
 	'Skrillex',
 	'Red Hot Chili Peppers',
 	'Pussy Riot',
-	'Fury In The Slaughterhouse',
 	'Rage Against the Machine',
 	'浜崎あゆみ',
 	'Florence + the Machine',
@@ -91,8 +90,11 @@ $(function() {
 			$('section').hide();
 			$('.gameover').show();
 
-			var tweeturl = 'http://twitter.com/?status=I+just+scored+'+points+'+points+in+%23facematch.+' + encodeURIComponent('http://marekventur.github.com/facematch/');
+			var tweeturl = 'http://twitter.com/?status=I+just+scored+'+points+'+points+in+%23facematch.+' + encodeURIComponent('http://marekventur.github.com/facematch/') + "+%23mhd+%23musichackday";
 			$('#tweet').attr('href', tweeturl);
+
+			$('#refresh').click(function() { window.location.reload(); } );
+
 			return;
 		}
 
