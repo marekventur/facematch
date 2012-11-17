@@ -68,12 +68,12 @@ $(function() {
 			});
 		});
 
-		// Display choices
+		// Display choises
 		$('.choises').empty();
 		$.each(shuffledList, function(i, artist) {
 
-			var $choice = $('<li><a href="#">'+artist+'</a></li>');
-			$('a', $choice).click(function() {
+			var $choise = $('<li><a href="#">'+artist+'</a></li>');
+			$('a', $choise).click(function() {
 				if (artist == thisRoundWinner) {
 					alert('yes');
 				}
@@ -82,7 +82,7 @@ $(function() {
 					alert('no');
 				}
 			});
-			$('.choices').append($choice);
+			$('.choises').append($choise);
 		});
 
 	}
