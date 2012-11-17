@@ -9,7 +9,17 @@ var artists = [
 	'Pink Floyd',
 	'Coldplay',
 	'Journey',
-	'REM'
+	'REM',
+	'Queen',
+	'Abba',
+	'Skrillex',
+	'Red Hot Chili Peppers',
+	'Pussy Riots',
+	'Fury In The Slaughterhouse',
+	'Rage Against the Machine',
+	'浜崎あゆみ',
+	'Florence + the Machine',
+	'Lana Del Rey'
 ];
 
 // Returns a cloned, shuffled list of artists
@@ -48,16 +58,47 @@ function getFansForArtist(artist, callback) {
 
 function updateText() {
 	$('#points').text(points);
-	$('#tries').text(tries);
+}
+
+function notify(text, type) {
+	$.pnotify({
+        title: "Facematch",
+        text: text,
+        type: type || 'info',
+        icon: "",
+        delay: 2000,
+        before_open: function(pnotify) {
+            // Position this notice in the center of the screen.
+            /*pnotify.css({
+                "top": ($(window).height() / 2) - (pnotify.height() / 2),
+                "left": ($(window).width() / 2) - (pnotify.width() / 2)
+            });*/
+            
+        }
+    });
 }
 
 var thisRoundWinner;
-var tries = 2;
 var points = 0;
+var rounds = 0;
 
 $(function() {
 
 	function startRound() {
+		
+		if (rounds == 1) {
+			notify('You\'re finished! You got '+points+'.');
+			$('section').hide();
+			$('.gameover').show();
+
+			var tweeturl = 'http://twitter.com/?status=I+just+scored+'+points+'+points+in+%23facematch.+' + encodeURIComponent('http://github.com');
+			$('#tweet').attr('href', tweeturl);
+			return;
+		}
+
+		rounds++;
+
+
 		var shuffledList = getShuffledList();
 		console.log(shuffledList);
 		shuffledList = shuffledList.splice(0, 4);
@@ -90,27 +131,29 @@ $(function() {
 			$('a', $choice).click(function() {
 				if (artist == thisRoundWinner) {
 					points += 5;
-					var noty = $.noty({text: 'well done'});
+					notify('Fan-tastic! That\'s five points for you!');
+					tries = 2;
+					startRound();
 				}
 				else
 				{
 					points -= 1;
-					$choice.css('text-decoration', 'strikethrough');
-					var noty = $.noty({text: 'no, that\'s wrong'});
+					$choice.css('text-decoration', 'line-through');
+					
+					
+					notify('Ups! Try again. -1 point.');
+					
 				}
+
+				updateText();
 			});
 			$('.choices').append($choice);
-		});
 
-		
-		var noty = $.noty({text: 'have fun'});
+			updateText();
+		});
 
 		updateText();
 
-	}
-
-	function nextRound() {
-		sta
 	}
 
 	startRound();

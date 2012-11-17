@@ -1,0 +1,56 @@
+.ui-pnotify {
+	background: white;
+}
+
+.faces {
+	display: block;
+	line-height: 1px;
+	width: 400px;
+
+	float: left;
+}
+
+.right {
+	display: block;
+	float:left;
+	width: 450px;
+}
+
+.choices li {
+	list-style:none;
+}
+
+.choices li a,
+.choices li a:visited {
+	color : #000;
+	text-decoration: none;
+	font-size: 1.2em;
+	text-decoration: strikethrough;
+	display: block;
+	margin-top: 20px;
+	border: 1px solid black;
+	padding: 5px;
+	text-align: center;
+}
+
+a:hover {
+	background-color: #ccc;
+	text-decoration: underline;
+}
+
+* {
+	font-family: 'Average Sans', sans-serif;
+}
+
+.description {
+	text-align: center;
+}
+
+ul {
+	padding: 0;
+}
+
+.gameover {
+	font-size: 2em;
+	
+}

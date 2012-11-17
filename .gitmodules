@@ -1,3 +1,6 @@
 [submodule "noty"]
 	path = noty
 	url = https://github.com/needim/noty.git
+[submodule "pnotify"]
+	path = pnotify
+	url = https://github.com/sciactive/pnotify.git
