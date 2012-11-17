@@ -2,7 +2,10 @@ var artists = [
 	'Metallica',
 	'Cher',
 	'One Direction',
-	'Psy'
+	'Psy',
+	'Adele',
+	'Mozart',
+	''
 ];
 
 // Returns a cloned, shuffled list of artists
@@ -68,12 +71,12 @@ $(function() {
 			});
 		});
 
-		// Display choises
-		$('.choises').empty();
+		// Display choices
+		$('.choices').empty();
 		$.each(shuffledList, function(i, artist) {
 
-			var $choise = $('<li><a href="#">'+artist+'</a></li>');
-			$('a', $choise).click(function() {
+			var $choice = $('<li><a href="#">'+artist+'</a></li>');
+			$('a', $choice).click(function() {
 				if (artist == thisRoundWinner) {
 					alert('yes');
 				}
@@ -82,7 +85,7 @@ $(function() {
 					alert('no');
 				}
 			});
-			$('.choises').append($choise);
+			$('.choices').append($choice);
 		});
 
 	}
