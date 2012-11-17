@@ -86,12 +86,12 @@ $(function() {
 
 	function startRound() {
 		
-		if (rounds == 1) {
+		if (rounds == 5) {
 			notify('You\'re finished! You got '+points+'.');
 			$('section').hide();
 			$('.gameover').show();
 
-			var tweeturl = 'http://twitter.com/?status=I+just+scored+'+points+'+points+in+%23facematch.+' + encodeURIComponent('http://github.com');
+			var tweeturl = 'http://twitter.com/?status=I+just+scored+'+points+'+points+in+%23facematch.+' + encodeURIComponent('http://marekventur.github.com/facematch/');
 			$('#tweet').attr('href', tweeturl);
 			return;
 		}
